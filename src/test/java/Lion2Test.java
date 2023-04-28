@@ -15,8 +15,8 @@ public class Lion2Test {
     Feline feline;
 
     @Test
-    public void getKittensTest(){
-        Lion lion = new Lion(feline);
+    public void getKittensTest() throws Exception {
+        Lion lion = new Lion("Самец", feline);
         Mockito.when(feline.getKittens()).thenReturn(3);
         int expected = 3;
         Assert.assertEquals(expected, lion.getKittens());
@@ -24,14 +24,10 @@ public class Lion2Test {
 
     @Test
     public void getFoodLionTest() throws Exception {
-        try {
-            Lion lion = new Lion(feline);
+            Lion lion = new Lion("Самка", feline);
             Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
             List<String> expected = List.of("Животные", "Птицы", "Рыба");
             Assert.assertEquals(expected, lion.getFood());
-        }catch (Exception exception){
-            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
-        }
     }
 
 

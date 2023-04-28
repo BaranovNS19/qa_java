@@ -1,3 +1,4 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,14 +27,8 @@ public class LionTest {
 
     @Test
     public void doesHaveManeTest() throws Exception {
-        try {
-            Lion lion = new Lion(sexLion);
-            Assert.assertEquals(expectedResult, lion.doesHaveMane());
-        }catch (Exception exception){
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
-        }
-
-
+        Lion lion = new Lion(sexLion, new Feline());
+        Assert.assertEquals(expectedResult, lion.doesHaveMane());
     }
 
 
